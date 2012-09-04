@@ -568,6 +568,7 @@
   Options:
     :series-label (default x expression)
     :points (default false)
+    :data (dataset to be used to generate additional lines)
 
   Examples:
 
@@ -987,6 +988,26 @@
                                              ((:series-label opts) (nth group-keys i))
                                              (format "%s, %s (%s)" 'x 'y i))
                              :points points?)))]
+      (when (:log-x opts)
+        (.setDomainAxis (.getPlot chart) (org.jfree.chart.axis.LogarithmicAxis. x-lab))
+        (.setLabelPaint (.getDomainAxis (.getPlot chart)) (new 
+                                                            java.awt.Color 128 128 128)) 
+        (.setLabelFont (.getDomainAxis (.getPlot chart)) (new java.awt.Font 
+                                                               "Tahoma" java.awt.Font/BOLD 18)) 
+        (.setTickLabelFont (.getDomainAxis (.getPlot chart)) (new java.awt.Font 
+                                                                   "Tahoma" java.awt.Font/BOLD 14)) 
+        (.setTickLabelPaint (.getDomainAxis (.getPlot chart)) (new 
+                                                                java.awt.Color 128 128 128)) )
+      (when (:log-y opts)
+        (.setRangeAxis (.getPlot chart) (org.jfree.chart.axis.LogarithmicAxis. y-lab))
+        (.setLabelPaint (.getRangeAxis (.getPlot chart)) (new 
+                                                           java.awt.Color 128 128 128)) 
+        (.setLabelFont (.getRangeAxis (.getPlot chart)) (new java.awt.Font 
+                                                              "Tahoma" java.awt.Font/BOLD 18)) 
+        (.setTickLabelFont (.getRangeAxis (.getPlot chart)) (new java.awt.Font 
+                                                                  "Tahoma" java.awt.Font/BOLD 14)) 
+        (.setTickLabelPaint (.getRangeAxis (.getPlot chart)) (new 
+                                                               java.awt.Color 128 128 128)))      
       (.setRenderer (.getPlot chart) 0 (XYLineAndShapeRenderer. true points?))
       (set-theme chart theme)
       chart)))

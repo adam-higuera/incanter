@@ -1,4 +1,4 @@
-(defproject incanter "1.3.0"
+(defproject incanter "1.3.0-LOCAL"
   :description "Incanter is a Clojure-based, R-like statistical programming and data visualization environment."
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [incanter/incanter-core "1.3.0"
@@ -7,7 +7,7 @@
                  [incanter/incanter-io "1.3.0"
                   :exclusions [org.clojure/clojure
                                org.clojure/clojure-contrib]]
-                 [incanter/incanter-charts "1.3.0"
+                 [incanter/incanter-charts "1.3.0-LOCAL"
                   :exclusions [org.clojure/clojure
                                org.clojure/clojure-contrib]]
                  [incanter/incanter-processing "1.3.0"

@@ -1,4 +1,4 @@
-(defproject incanter/incanter-charts "1.3.0"
+(defproject incanter/incanter-charts "1.3.0-LOCAL"
   :description "Incanter-charts is the JFreeChart module of the Incanter project."
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [incanter/incanter-core "1.3.0"
